@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Diabetes Prediction</h1>
+        <form action="/predict" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="pregnancies">Pregnancies:</label>
+            <input type="number" id="pregnancies" name="pregnancies" required min="0" max="20">
+
+            <label for="glucose">Glucose:</label>
+            <input type="number" id="glucose" name="glucose" required min="0" max="200">
+
+            <label for="blood_pressure">Blood Pressure:</label>
+            <input type="number" id="blood_pressure" name="blood_pressure" required min="0" max="200">
+
+            <label for="skin_thickness">Skin Thickness:</label>
+            <input type="number" id="skin_thickness" name="skin_thickness" required min="0" max="100">
+
+            <label for="insulin">Insulin:</label>
+            <input type="number" id="insulin" name="insulin" required min="0" max="800">
+
+            <label for="bmi">BMI:</label>
+            <input type="number" id="bmi" name="bmi" required min="0" max="70">
+
+            <label for="diabetes_pedigree_function">Diabetes Pedigree Function:</label>
+            <input type="number" id="diabetes_pedigree_function" name="diabetes_pedigree_function" required min="0.0" max="2.5">
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required min="15" max="120">
+
+            <button type="submit">Submit</button>
+        </form>
+        
+        {% if prediction %}
+            <h2>Prediction: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

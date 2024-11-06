@@ -1,0 +1,11 @@
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./logs:/app/logs  # Volume for logs
+      - ./user_data:/app/user_data  # Bind mount for user data (CSV file)
+    environment:
+      - FLASK_ENV=development
